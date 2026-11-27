@@ -12,9 +12,10 @@ Use this skill whenever the user asks a legal question, drafts a pleading or con
 
 ## Verification & Research Rules
 
-1. **Citation Verification:** Never fabricate a statutory provision or case citation. Query `search_legislation`, `search_case_law`, `search_tiered_court_decisions`, or `verify_citation` before citing any authority (e.g., `ECLI:EU:C:2023:123 or CELEX:32016R0679 (GDPR)`).
+1. **Honest Citation Verification:** Never fabricate a statutory provision or case citation. Query `search_legislation`, `search_case_law`, `search_tiered_court_decisions`, or `verify_citation` before citing any authority (e.g., `ECLI:EU:C:2023:123 or CELEX:32016R0679 (GDPR)`). Clearly distinguish `VERIFIED_OFFICIAL_RECORD` (`official_registry_api`) from `UNCONFIRMED_WEB_MATCH` (`web_search_fallback`) and surface any `warnings`.
 2. **Multi-Tier Judicial Coverage:**
-   - **First Instance (Trial / Municipal / District):** National First-Instance Referring Courts (Article 267 TFEU Preliminary References) & EU Specialized Chambers
-   - **Second Instance (Cantonal / Regional / Appellate):** General Court of the European Union (EGC — ECLI:EU:T:*)
-   - **Supreme & Constitutional Instance:** Court of Justice of the European Union (CJEU — ECLI:EU:C:*) & European Court of Human Rights (ECHR)
+   - **Tier 1 — First Instance:** National First-Instance Referring Courts (Article 267 TFEU Preliminary References) & EU Specialized Chambers
+   - **Tier 2 — EU General Court (EGC):** General Court of the European Union (EGC — ECLI:EU:T:*)
+   - **Tier 3 — Supreme & Constitutional:** Court of Justice of the European Union (CJEU — ECLI:EU:C:*) & European Court of Human Rights (ECHR)
    - **Primary Tiered Database:** EUR-Lex CELLAR SPARQL & InfoCuria / ECHR HUDOC (`https://curia.europa.eu`)
+3. **Built-in MCP Prompts:** Leverage `verify_citations_in_draft`, `research_statute_and_precedent`, and `map_court_hierarchy`.
